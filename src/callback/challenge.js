@@ -9,6 +9,7 @@ function fetchData(url_api, callback){// nos permite traer información de nuest
         if(xhttp.readyState === 4){ // 4 significa que la información llegó
             if(xhttp.status === 200){ // el status HTML, existen 400, 300, 500
                 callback(null, JSON.parse(xhttp.responseText)); // por estándares se utiliza el error como el primer parámetro y la respuesta como el segundo. // se tiene que parsear ya que es un texto, ya que sino solo se mandará un string
+                console.log(JSON.parse(xhttp.responseText))
             } else {
                 const err = new Error('Error ' + url_api);
                 return callback(err, null) // en segundas se pasa null ya que no mandó info sino que hubo un error
@@ -30,4 +31,3 @@ fetchData(API, function(err1, data1){
         });
     });
 })
-
